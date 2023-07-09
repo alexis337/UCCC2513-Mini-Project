@@ -9,11 +9,9 @@ cap = cv.VideoCapture("videos/img_pexels.mp4")
 if not cap.isOpened():
     sys.exit("No such file")
     
-# parameters: filepath, fourcc, fps, frame width and height
+# parameters: fourcc, fps
 fourcc = cv.VideoWriter_fourcc("M","J","P","G") # fourcc -> identifier/algorithm to determine how the file is to be compressed or decompressed (extension varies based on hardware/software)
 fps = 15
-w, h = int(cap.get(3)*30/100), int(cap.get(4)*30/100) #find in opencv official documentation -> 4.7.0 -> search videocaptureAPI
-out = cv.VideoWriter("videos/smaller_img_pexels.mp4", fourcc, fps, (w, h))
 
 #read the frames with loop
 while True:
@@ -21,6 +19,8 @@ while True:
     
     #resize frame
     resize_frame = cv.resize(frame, None, fx = 0.3, fy = 0.3)
+    w, h = int(resize_frame.shape[1]), int(resize_frame.shape[0]) #find in opencv official documentation -> 4.7.0 -> search videocaptureAPI
+    out = cv.VideoWriter("videos/smaller_img_pexels.avi", fourcc, fps, (w, h))
     
     if not ret:
         print("No frame detected")
