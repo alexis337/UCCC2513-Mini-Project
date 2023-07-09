@@ -12,7 +12,7 @@ if not cap.isOpened():
 # parameters: filepath, fourcc, fps, frame width and height
 fourcc = cv.VideoWriter_fourcc("M","J","P","G") # fourcc -> identifier/algorithm to determine how the file is to be compressed or decompressed (extension varies based on hardware/software)
 fps = 15
-w, h = int(cap.get(3)*50/100), int(cap.get(4)*30/100) #find in opencv official documentation -> 4.7.0 -> search videocaptureAPI
+w, h = int(cap.get(3)*30/100), int(cap.get(4)*30/100) #find in opencv official documentation -> 4.7.0 -> search videocaptureAPI
 out = cv.VideoWriter("videos/smaller_img_pexels.mp4", fourcc, fps, (w, h))
 
 #read the frames with loop
