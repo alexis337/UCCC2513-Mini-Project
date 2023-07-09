@@ -1,0 +1,17 @@
+img = cv.imread("images/dog.jfif")
+
+#arguments: source image, dimension, fx, fy, interpolation methods(default: bilinear)
+# method 1: linear interpolation
+img_resize_linear = cv.resize(img, None, fx = 1.5, fy = 1.5, interpolation=cv.INTER_LINEAR)
+# method 2: cubic interpolation
+img_resize_cubic = cv.resize(img, None, fx = 1.5, fy = 1.5, interpolation=cv.INTER_CUBIC)
+# method 2: nearest neighbour interpolation
+img_resize_nearest = cv.resize(img, None, fx = 1.5, fy = 1.5, interpolation=cv.INTER_NEAREST)
+
+cv.imshow("original", img)
+cv.imshow("upscale-linear", img_resize_linear)
+cv.imshow("upscale-cubic", img_resize_cubic)
+cv.imshow("upscale-nearest neighbour", img_resize_nearest)
+
+cv.waitKey(0)
+cv.destroyAllWindows()
